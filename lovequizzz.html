@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Special Quiz For You ❤️</title>
+<style>
+body{
+font-family: Arial;
+background: #ffe6f0;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+margin:auto;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+border:none;
+border-radius:8px;
+background:#ff4d88;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff1a66;
+}
+
+img{
+width:200px;
+margin-top:20px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 id="question">Do you love me? ❤️</h2>
+
+<div id="options">
+<button onclick="answer(0)">Yes</button>
+<button onclick="answer(1)">Yes Obviously</button>
+<button onclick="answer(2)">Maybe 😏</button>
+</div>
+
+<p id="response"></p>
+
+<img id="image" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+
+</div>
+
+<script>
+
+let questions = [
+{
+q:"Do you love me? ❤️",
+responses:[
+"Aww I knew it! My charm is unstoppable 😎",
+"Of course you do 😌 I'm too awesome.",
+"Maybe?? I'll take that as 90% yes 😏"
+],
+img:"https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+},
+
+{
+q:"Who is the cutest person?",
+responses:[
+"Correct answer detected 😌",
+"Wow confidence level 100 😂",
+"Hmm suspicious answer 👀"
+],
+img:"https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+},
+
+{
+q:"Would you go on a date with me?",
+responses:[
+"Good choice 😌 I would too.",
+"Best decision of your life 😂",
+"I'll convince you anyway 😎"
+],
+img:"https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+}
+]
+
+let current = 0
+
+function answer(option){
+
+document.getElementById("response").innerText =
+questions[current].responses[option]
+
+current++
+
+if(current < questions.length){
+setTimeout(()=>{
+document.getElementById("question").innerText =
+questions[current].q
+
+document.getElementById("image").src =
+questions[current].img
+
+document.getElementById("response").innerText=""
+},2000)
+
+}else{
+
+setTimeout(()=>{
+document.getElementById("question").innerText =
+"Quiz Finished ❤️"
+
+document.getElementById("options").style.display="none"
+
+document.getElementById("response").innerText =
+"Conclusion: You're awesome and thanks for playing 😄"
+},2000)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
